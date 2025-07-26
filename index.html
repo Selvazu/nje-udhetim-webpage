@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Një Udhëtim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Playfair Display', serif;
+      overflow-x: hidden;
+    }
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      transition: background 1s ease-in-out;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.5rem;
+      animation: fadeIn 3s ease-in-out;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      animation: fadeIn 4s ease-in-out;
+    }
+    p {
+      font-size: 1.2rem;
+      max-width: 900px;
+      margin-top: 1.5rem;
+      animation: fadeIn 4s ease-in-out;
+    }
+    .arrow {
+      font-size: 2rem;
+      margin-top: 2rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    .confetti-piece {
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      position: absolute;
+      top: -10px;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+    .hearts::before {
+      content: '❤️';
+      font-size: 2rem;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="lockScreen" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#111; color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:9999;">
+    <h2>Shkruaj fjalëkalimin për të hyrë</h2>
+    <input type="password" id="password" placeholder="Fjalëkalimi" style="padding:1rem; margin-top:1rem; font-size:1rem;" />
+    <button onclick="checkPassword()" style="padding:0.5rem 1rem; margin-top:1rem;">Hyj</button>
+    <p id="error" style="color:red; display:none; margin-top:1rem;">Zemër provoje edhe njëherë se gabim.</p>
+  </div>
+
+  <section style="background: #ffe6e6 url('assets/images/roses.png') no-repeat center/cover; color: crimson;">
+    <h1 style="background-color: black;">NJË UDHËTIM QË TI E BËRE TË SHKËLQEJË</h1>
+    <h2 style="background-color: turquoise;">Lëvize poshtë</h2>
+    <div class="arrow">⬇️</div>
+  </section>
+
+  <section style="background-color: #fff0f5;">
+    <p style="font-size:170%; background-color: orangered;">Planet për këtë udhëtim të mrekullueshëm filluan të përpilohen më 20 dhe 24 maj të vitit të mrekullueshëm 2010-të. Do të zgjaste plot 2 vite ky planifikim, ishte vështirë të pritej sikur çdo gjë e bukur që nuk duron pritjen. Por megjithatë do të shkonte bukur, këndshëm dhe ëmbël, ndoshta për të na joshur edhe më shumë drejt synimit të atij udhëtimi që mezi e prisnim.</p>
+  </section>
+
+  <section style="background-color: #ffccd5;">
+    <h1>25 KORRIK 2012</h1>
+    <div id="confetti-container"></div>
+    <p>Ky udhëtim i mahnitshëm që ndihej sikur ishte vonuar për shkak të padurimit për të pritur filloi me 25 korrik të vitit të begatë 2012-të. Udhëtimi filloi dhe tashmë pothuajse çdo gjë do të ndryshonte. Gëzimi e hareja për shkak të nisjes së këtij treni në rrugën e tij të mbarë ishin të papërshkrueshme. Sikur çdo udhëtim që ka lodhjet, sfidat si dhe vështirësitë e tij, edhe ky do t'i kishte të tijat. Por çdo sfidë për besimtaren dhe besimtarin e sinqertë është vetëm një shkollë kalitëse që e bën më të fortë për të vazhduar udhëtimin. Kështu ishte edhe për ne të dy.</p>
+  </section>
+
+  <section style="background: url('assets/images/turkey-theme.png') center/cover no-repeat; position: relative; color: white;">
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding: 2rem; border-radius: 10px;">
+      <h1>Udhëtimi në Tokën e Begatë – Turqi</h1>
+      <p>Ky udhëtim i bukur na sorrolati gjithandej, dhe na bëri të shohim e përjetojmë vende dhe njerëz të kulturave dhe vendeve të ndryshme. Mësuam e u rritëm edhe më shumë, u shkolluam dhe fituam njohuri të rëndësishme në vende të begata. Allahu na begatoi me shumë të mira që për shkak të rutinës së udhëtimit ndoshta vetëm kur të ndalemi e të mendojmë i shohim se sa begati të Allahut të madhëruar na përshkuan e na ngritën.</p>
+    </div>
+  </section>
+
+  <section style="background: url('assets/images/graduation.png') center/cover no-repeat;">
+    <h1 style="background-color: rgba(255, 0, 0, 0.5);">Vera 2016 përveç që je duke bartur në barkun tënd një frut të begatë, një vajzushë të bukur e të mirë e të këndshme DIPLOMOVE - TANI JE MASTER I SHKENCAVE SOCIALE.</h1>
+    <p style="background-color: rgba(190, 0, 0, 0.6);">Por një person i etur për dije dhe ngritje e urtësi sikur ti a ndalet me kaq? - VAZHDOVE ME PROGRAMIN E DOKTORATURËS ME NDIHMËN E ALLAHUT FUQIPLOTË.</p>
+  </section>
+
+  <section style="background: pink url('assets/images/selva-bg.png') repeat;">
+    <h1 style="color:crimson;">08.12.2016 NJË PREJ BEGATIVE MË TË BUKURA TË KËTIJ UDHËTIMI SELVA JONË E DASHUR ERDHI GJATË KËTIJ UDHËTIMI.</h1>
+  </section>
+
+  <section style="background: url('assets/images/graduation.png') center/cover no-repeat;">
+    <h1 style="background-color: rgba(255, 0, 0, 0.5);">Viti 2019 dhe diplomova unë në master, Allahut i takon i gjithë falënderimi çdo herë dhe për çdo gjë. Pastaj mbështetja dhe asistimi yt në këtë rrugë për mua ishte i një rëndësie të veçantë.</h1>
+    <h2 style="background-color:  rgba(255, 215, 0, 0.6);">Por Allahu mundin tënd e shpërbleu shumëfish: VITI 2021, URIME DIPLOMIMI NË GRADËN E DOKTORATURËS NË SHKENCAT SOCIALE - DOKTORESHË E MËSIMEVE TË TEFSIRIT. Një arritje e madhe por me mundim, e përpjekje të vazhdueshme të cilën e kurorëzove me librin tënd i cili u botua dhe vazhdon të përdoret si një burimi i rëndësishëm nga studentët e librit të Allahut në Turqi. Le një sadaka rrjedhëse që do të vazhdojë deri në ditën e Gjykimit me lejen e Allahut. Sa mirë për ty, a e ke mendu ndonjëherë që ke lënë një vepër kaq madhështore në moshë kaq të re? Se di ti sa me fat je. Të ka begatu Allahu. Eee secili diplomim i yti prej qe shkuam në atë vend të bekuar rezoltoi me nga një frut të begatë të dhuruar nga Allahu fuqiplotë, e kësaj radhe një djalë i vyer e i begatshëm. Allahu na bekoftë të gjithëve së bashku.</h2>
+  </section>
+
+  <section style="background: url('assets/images/kosovo-theme.png') center/cover no-repeat; color: white;">
+    <h1 style="background-color:rgba(255, 215, 0, 0.6); color: blue ;">DHE KTHIMI NË ATDHE.</h1>
+    <p style="background-color: rgba(255, 215, 0, 0.6); color: blue;">Prindërit tanë e pritën me gëzim të papërshkrueshëm kthimin tonë të suksesshëm në vend. U punësuam dhe filluam aktivitetet që vazhdojnë, e Allahu na dhashtë sinqeritet dhe bereqet në to.</p>
+  </section>
+
+  <section style="background: lightblue url('assets/images/zuhejr-bg.png') repeat;">
+    <h1 style="display: inline-block; background-color: rgba(255, 215, 0, 0.6);">14 JANAR 2022 DHE ZUHEJRI, DJALI I ZELLSHËM DHE I BEGATË ERDHI DHE NA GËZOI SHUMË E NA BEGATOI ALLAHU ME TË.</h1>
+    <p style="background-color: rgba(34, 212, 203, 0.966);;">Allahu e begatoftë gjithë rrugën tonë bashkë me paraardhësit e pasardhësit tanë, në dunja dhe ahiret, na bëftë të hajrit e të dobishëm për njerëzit tanë dhe për ummetin. AMIN! <br/>
+      Ju dua shumë Selva & Zuhejr.</p>
+  </section>
+
+  <section style="background-color: #f8bbd0;" class="hearts">
+    <h1>URIME PËRVJETORI ZEMËR TË DUA SHUMË DHE DO TË TË DUA GJITHMONË ME LEJEN E ALLAHUT</h1>
+    <h1> انت حلالي</h1> <br/>
+   <h1 style="font-family: 'Playfair Display', serif; color: aqua;">Valmire'm</h1>
+
+  </section>
+
+  <script>
+    function checkPassword() {
+      const pw = document.getElementById('password').value;
+      const correct = "25.07.2025";
+      if (pw === correct) {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.body.style.overflowY = 'auto';
+      } else {
+        document.getElementById('error').style.display = 'block';
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti-piece');
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      document.getElementById('confetti-container').appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
